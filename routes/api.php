@@ -17,8 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 
 
-route::post('/todolist', [TodolistController::class, 'store']);
+Route::post('/store', [todolistController::class, 'store']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/show/{id}', [todolistController::class, 'show']);
+
+Route::get('/index', [todolistController::class, 'index']);
+
+Route::delete('/destroy/{id}', [todolistController::class, 'destroy']);
+
+Route::put('/update/{id}', [todolistController::class, 'update']);
+
+

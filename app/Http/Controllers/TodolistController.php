@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\Todolist;
+use App\Models\Todolist;
 
 class todolistController extends Controller
 {
@@ -36,7 +36,7 @@ class todolistController extends Controller
     public function store(Request $request) {
         return Todolist::create($request->all());
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -65,9 +65,9 @@ class todolistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $tasklist, $id) {
         $todolist = Todolist::findOrFail($id);
-        $todolist->update($request->all());
+        $todolist->update($tasklist->all());
     }
 
     /**
